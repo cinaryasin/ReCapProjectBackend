@@ -65,6 +65,17 @@ namespace Business.Concrete
             _brandDal.Delete(brand);
             return new SuccessResult(Messages.Deleted);
         }
+
+        public IDataResult<List<BrandDetailDto>> GetBrandDetails()
+        {
+            return new SuccessDataResult<List<BrandDetailDto>>(_brandDal.GetBrandDetails(), Messages.Listed);
+        }
+
+        public IDataResult<List<BrandDetailDto>> GetBrandDetailsByBrand(int brandId)
+        {
+            
+            return new SuccessDataResult<List<BrandDetailDto>>(_brandDal.GetBrandDetails(c => c.Id == brandId));
+        }
     }
 }
 

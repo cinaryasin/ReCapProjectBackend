@@ -11,8 +11,30 @@ using System.Text;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfBrandDal : EfEntityRepositoryBase<Brand, CarRentalContext> , IBrandDal
+    public class EfBrandDal : EfEntityRepositoryBase<Brand, CarRentalContext>, IBrandDal
     {
-        
+        public List<BrandDetailDto> GetBrandDetails(Expression<Func<Brand, bool>> filter = null)
+        {
+            using (CarRentalContext context = new CarRentalContext())
+            {
+                var result = from c in filter == null ? context.Brands : context.Brands.Where(filter)
+
+                             join b in context.CarBrandImages
+                                 on c.Id equals b.BrandId
+
+
+                             select new BrandDetailDto
+                             {
+                                 BrandId = c.Id,
+                                 
+                                 BrandName=c.BrandName,
+                                 CarBrandImagePath = (from i in context.CarBrandImages where i.BrandId == b.Id select i.ImagePath).ToList()
+                                 
+
+
+                             };
+                return result.ToList();
+            }
+        }
     }
 }
