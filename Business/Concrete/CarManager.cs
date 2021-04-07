@@ -123,9 +123,9 @@ namespace Business.Concrete
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(c => c.ColorId == colorId && c.BrandId==brandId));
         }
 
-        public IDataResult<List<CarDetailDto>> GetCarDetailsByCar(int carId)
+        public IDataResult<List<CarDetailDto>> GetCarDetailsByCar(int id)
         {
-            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(c=> c.Id == carId));
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(c=> c.Id == id));
         }
 
         
