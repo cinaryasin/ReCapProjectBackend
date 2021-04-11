@@ -28,7 +28,7 @@ namespace DataAccess.Concrete.EntityFramework
                                  BrandId = c.Id,
                                  
                                  BrandName=c.BrandName,
-                                 CarBrandImagePath = (from i in context.CarBrandImages where i.BrandId == b.Id select i.ImagePath).ToList()
+                                 CarBrandImagePath = (from i in context.CarBrandImages where i.BrandId == b.BrandId select i.ImagePath).ToList()
                                  
 
 
