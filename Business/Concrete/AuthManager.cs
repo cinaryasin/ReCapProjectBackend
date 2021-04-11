@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.Constants;
 using Core.Entities.Concrete;
 using Core.Utilities.Results;
@@ -22,6 +24,7 @@ namespace Business.Concrete
             _tokenHelper = tokenHelper;
         }
 
+        
         public IDataResult<User> Register(UserForRegisterDto userForRegisterDto, string password)
         {
             byte[] passwordHash, passwordSalt;

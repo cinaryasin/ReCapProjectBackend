@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Mime;
 using System.Text;
 using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Core.Aspects.Autofac.Caching;
 using Core.Constants;
 using Core.Utilities.Business;
@@ -65,6 +66,7 @@ namespace Business.Concrete
 
 
         [CacheRemoveAspect("ICarImageService.Get")]
+        [SecuredOperation("admin")]
         public IResult Add(IFormFile file, CarImage carImage)
         {
             var result = BusinessRules.Run(
@@ -104,6 +106,7 @@ namespace Business.Concrete
 
 
         [CacheRemoveAspect("ICarImageService.Get")]
+        [SecuredOperation("admin")]
         public IResult Update(IFormFile file, CarImage carImage)
         {
             var result = BusinessRules.Run(
@@ -125,6 +128,7 @@ namespace Business.Concrete
 
 
         [CacheRemoveAspect("ICarImageService.Get")]
+        [SecuredOperation("admin")]
         public IResult Delete(CarImage carImage)
         {
 

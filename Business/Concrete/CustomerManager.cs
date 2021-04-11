@@ -24,7 +24,7 @@ namespace Business.Concrete
 
         
         
-        //[CacheAspect]
+        [CacheAspect]
         public IDataResult<List<Customer>> GetAll()
         {
             return new SuccessDataResult<List<Customer>>(_customerDal.GetAll(), Messages.Listed);

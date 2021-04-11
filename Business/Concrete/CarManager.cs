@@ -13,6 +13,7 @@ using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Transaction;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Filter;
+using Business.BusinessAspects.Autofac;
 
 namespace Business.Concrete
 {
@@ -58,6 +59,7 @@ namespace Business.Concrete
         
         
         [CacheRemoveAspect("ICarService.Get")]
+        [SecuredOperation("admin")]
         [ValidationAspect(typeof(CarValidator), Priority =1)]
         public IResult  Add(Car car)
         {
@@ -75,6 +77,7 @@ namespace Business.Concrete
         
         
         [CacheRemoveAspect("ICarService.Get")]
+        [SecuredOperation("admin")]
         public IResult Delete(Car car)
         {
             var result = _carDal.DeleteCarIfNotReturnDateNull(car);
@@ -90,6 +93,7 @@ namespace Business.Concrete
         
         
         [ValidationAspect(typeof(CarValidator), Priority =1)]
+        [SecuredOperation("admin")]
         [CacheRemoveAspect("ICarService.Get")]
         public IResult Update(Car car)
         {

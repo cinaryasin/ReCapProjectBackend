@@ -47,7 +47,7 @@ namespace Core.Constants
         public static string SuccessfulLogin = "Giriş Başarılı";
         public static string UserAlreadyExists = "Bu Kullanıcı Zaten Mevcut";
         public static string UserRegistered = "Kullanıcı Başarılı Bir Şekilde Kaydoldu";
-        public static string AccessTokenCreated = "Şifre Oluşturuldu ";
+        public static string AccessTokenCreated = "Token Oluşturuldu ";
 
     }
 }
