@@ -37,9 +37,7 @@ namespace DataAccess.Concrete.EntityFramework
                                  DailyPrice = c.DailyPrice,
                                  Description = c.Description,
                                  ImagePath = (from i in context.CarImages where i.CarId == c.Id select i.ImagePath).ToList(),
-                                 CarBrandImagePath = (from i in context.CarBrandImages where i.BrandId == b.Id select i.ImagePath).ToList(),
-                                
-
+                                 CarBrandImagePath = (from i in context.CarBrandImages where i.BrandId == b.Id select i.ImagePath).SingleOrDefault(),
                              };
                 return result.ToList();
             }

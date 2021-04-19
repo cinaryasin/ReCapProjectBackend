@@ -18,6 +18,6 @@ namespace Entities.DTOs
         public string Description { get; set; }
     
         public List<string> ImagePath { get; set; }
-        public List<string> CarBrandImagePath { get; set; }
+        public string CarBrandImagePath { get; set; }
     }
 }
